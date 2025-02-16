@@ -120,3 +120,14 @@ This project is licensed under the MIT License.
 **Links from Circleci Test Coverage Report**
 
 1.https://output.circle-artifacts.com/output/job/b9f869e6-aa89-4789-b353-271a6f64d992/artifacts/0/test-coverage/class_index.html
+
+
+# Test Coverage Report
+
+## Running Tests with Coverage
+To measure test coverage and generate a browsable report, run:
+
+```sh
+pytest --cov=src --cov-report=html
+```
+
