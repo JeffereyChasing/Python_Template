@@ -19,25 +19,28 @@ Modern dependency management using uv
 Setup & Installation
 
 Clone the repository:
-
+```sh
 git clone https://github.com/your-username/your-repo.git
 cd your-repo
-
+```
 Install dependencies:
+```sh
 
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-
+```
 Run tests:
+```sh
 
 pytest --cov=src --cov-report=html
-
+```
 View test coverage:
+```sh
 
 open htmlcov/index.html  # macOS
 xdg-open htmlcov/index.html  # Linux
-
+```
 CI/CD Pipeline (CircleCI)
 
 How it Works
