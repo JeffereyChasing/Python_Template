@@ -103,7 +103,7 @@ UV (Dependency Management)
 
 This project is licensed under the MIT License.
 
-** Links from Circleci Tests**
+**Links from Circleci Tests**
 
 ****Pass examples:****
 
@@ -117,6 +117,6 @@ This project is licensed under the MIT License.
 
 2. https://app.circleci.com/pipelines/circleci/67ZqchNqYFV96fgwW7SXdk/9C4m9dcUHJDbrPi91BUCAo/8/workflows/b5407d3b-f39b-423b-a5f1-6ee09fdfbfd4
 
-** Links from Circleci Test Coverage Report**
+**Links from Circleci Test Coverage Report**
 
 1.https://output.circle-artifacts.com/output/job/b9f869e6-aa89-4789-b353-271a6f64d992/artifacts/0/test-coverage/class_index.html
