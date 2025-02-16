@@ -3,7 +3,7 @@ version: 2.1
 executors:
   python-executor:
     docker:
-      - image: cimg/python:3.12  # Use a proper Python 3.12 image
+      - image: cimg/python:3.12  # Use a CircleCI-maintained Python 3.12 image
     working_directory: ~/repo
 
 jobs:
@@ -13,20 +13,22 @@ jobs:
       - checkout
 
       - run:
-          name: Install Python via pyenv (if needed)
-          command: |
-            pyenv install --skip-existing 3.12.1
-            pyenv global 3.12.1
-            python --version
-
-      - run:
-          name: Install uv and dependencies
+          name: Install UV
           command: |
             curl -LsSf https://astral.sh/uv/install.sh | sh
+
+      - run:
+          name: Create Virtual Environment
+          command: |
+            uv venv  # Creates a virtual environment
+
+      - run:
+          name: Install Dependencies in Virtual Environment
+          command: |
             uv pip install pytest pytest-cov mypy ruff coverage
 
       - run:
-          name: Run tests
+          name: Run Tests
           command: |
             pytest --junitxml=test-results/results.xml --cov=src --cov-report=xml --cov-report=html
 
