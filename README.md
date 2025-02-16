@@ -6,7 +6,26 @@ This repository contains a Python project with automated unit tests, integration
 
 ***Features***
 
-✅ Automated unit tests with pytest✅ Test coverage report generated and browsable from CircleCI UI✅ CI/CD pipeline using CircleCI✅ Pre-commit checks with mypy and ruff✅ Modern dependency management using uv
+1. Automated unit tests with pytest
+
+2. Test coverage report generated and browsable from CircleCI UI
+
+3. CI/CD pipeline using CircleCI
+
+4. Pre-commit checks with mypy and ruff
+
+5. Modern dependency management using uv
+
+6. Static analysis and formatting checks
+
+7. GitHub Actions for continuous integratio
+
+
+***Prerequisites***
+
+1. Python 3.8 or higher
+
+2. UV for Python dependency management
 
 ***Setup & Installation***
 
@@ -34,20 +53,35 @@ xdg-open htmlcov/index.html  # Linux
 
 ***CI/CD Pipeline (CircleCI)***
 
-How it Works
+****How it Works****
 
 Push to GitHub → CircleCI triggers the pipeline➡️ Runs:
 
-Unit tests (pytest)
+1. Unit tests (pytest)
 
-Coverage report (pytest-cov)
+2. Coverage report (pytest-cov)
 
-Linting (ruff)
+3. Linting (ruff)
+
 Test results are visible in the CircleCI "Tests" tab➡️ Coverage reports are stored as "Artifacts", browsable in CircleCI UI.
 
 ***View Test Coverage in CircleCI***
 
 1️⃣ Go to CircleCI Dashboard2️⃣ Open the latest Job Run3️⃣ Navigate to Artifacts4️⃣ Click on test-coverage/index.html to browse the report
+
+
+
+***Pull Requests***
+
+1. Use the pull request template from .github/pull_request_template/
+
+2. Provide a clear summary of the PR.
+
+3. Explain the motivation behind the changes.
+
+4. Describe any testing performed to ensure correctness.
+
+
 
 ***Tech Stack***
 
