@@ -15,7 +15,7 @@ jobs:
           name: Install `uv` and Dependencies
           command: |
             curl -LsSf https://astral.sh/uv/install.sh | sh
-            uv pip install --dev pytest pytest-cov mypy ruff coverage
+            uv pip install pytest pytest-cov mypy ruff coverage
       
       - run:
           name: Run Code Formatter Check
