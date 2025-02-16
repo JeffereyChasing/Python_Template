@@ -3,7 +3,7 @@ version: 2.1
 executors:
   python-executor:
     docker:
-      - image: cimg/python:3.12  # Use a CircleCI-maintained Python 3.12 image
+      - image: cimg/python:3.12  # Use a proper Python image
     working_directory: ~/repo
 
 jobs:
@@ -23,13 +23,15 @@ jobs:
             uv venv  # Creates a virtual environment
 
       - run:
-          name: Install Dependencies in Virtual Environment
+          name: Install Dependencies
           command: |
+            . .venv/bin/activate  # Activate the virtual environment
             uv pip install pytest pytest-cov mypy ruff coverage
 
       - run:
           name: Run Tests
           command: |
+            . .venv/bin/activate  # Activate before running pytest
             pytest --junitxml=test-results/results.xml --cov=src --cov-report=xml --cov-report=html
 
       - store_test_results:
