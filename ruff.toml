@@ -1,0 +1,15 @@
+[format]
+
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[lint]
+# Enable all available checks
+select = ["ALL"]
+# Disable specific rules (if necessary)
+ignore = [
+    "D100", # Missing docstring in public module
+    "D104", # Missing docstring in package
+    "E501", # Line too long (Handled by formatter)
+]

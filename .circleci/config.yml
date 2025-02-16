@@ -1,0 +1,50 @@
+version: 2.1
+
+executors:
+  python-executor:
+    docker:
+      - image: cimg/python:3.11  # Use the latest official Python image
+
+jobs:
+  test:
+    executor: python-executor
+    steps:
+      - checkout
+
+      - run:
+          name: Install `uv` and Dependencies
+          command: |
+            curl -LsSf https://astral.sh/uv/install.sh | sh
+            uv pip install --dev pytest pytest-cov mypy ruff coverage
+      
+      - run:
+          name: Run Code Formatter Check
+          command: ruff format --diff .
+
+      - run:
+          name: Run Linter
+          command: ruff check .
+
+      - run:
+          name: Run Static Type Checking
+          command: mypy .
+
+      - run:
+          name: Create Test Results Directory
+          command: mkdir -p test-results
+
+      - run:
+          name: Run Tests with Coverage
+          command: pytest --junitxml=test-results/results.xml --cov=src --cov-report=xml --cov-report=html
+      
+      - store_test_results:
+          path: test-results
+
+      - store_artifacts:
+          path: htmlcov  # Store HTML coverage report
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
