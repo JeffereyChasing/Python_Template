@@ -7,9 +7,13 @@ line-ending = "lf"
 [lint]
 # Enable all available checks
 select = ["ALL"]
-# Disable specific rules (if necessary)
+
+# Disable specific rules (explain in comments)
 ignore = [
-    "D100", # Missing docstring in public module
-    "D104", # Missing docstring in package
-    "E501", # Line too long (Handled by formatter)
-]
+    "E501", # Ignore line length
+    "D203", # Conflicts with D211 
+    "D213",  # Conflicts with D212
+    "PLR0913", #Too many arguments in function, sometimes needed for clarity
+    "FBT001", #not useful in many cases
+    "FBT002"] #not useful in many cases
+

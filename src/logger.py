@@ -1,5 +1,4 @@
 class Logger:
-    """Records operations performed by the calculator."""
 
     def __init__(self):
         self.logs = []
