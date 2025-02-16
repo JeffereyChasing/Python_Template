@@ -3,7 +3,7 @@ version: 2.1
 executors:
   python-executor:
     docker:
-      - image: cimg/python:3.12  # Use a proper Python image
+      - image: cimg/python:3.12  # Use CircleCI's official Python 3.12 image
     working_directory: ~/repo
 
 jobs:
@@ -18,20 +18,16 @@ jobs:
             curl -LsSf https://astral.sh/uv/install.sh | sh
 
       - run:
-          name: Create Virtual Environment
+          name: Create Virtual Environment & Install Dependencies
           command: |
-            uv venv  # Creates a virtual environment
-
-      - run:
-          name: Install Dependencies
-          command: |
-            . .venv/bin/activate  # Activate the virtual environment
+            uv venv
+            . .venv/bin/activate
             uv pip install pytest pytest-cov mypy ruff coverage
 
       - run:
-          name: Run Tests
+          name: Run Tests & Generate Coverage Report
           command: |
-            . .venv/bin/activate  # Activate before running pytest
+            . .venv/bin/activate
             pytest --junitxml=test-results/results.xml --cov=src --cov-report=xml --cov-report=html
 
       - store_test_results:
@@ -39,7 +35,7 @@ jobs:
 
       - store_artifacts:
           path: htmlcov
-          destination: test-coverage
+          destination: test-coverage  # This makes the report browsable in CircleCI UI
 
 workflows:
   version: 2
