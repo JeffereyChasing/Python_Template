@@ -31,8 +31,8 @@ This repository contains a Python project with automated unit tests, integration
 
 Clone the repository:
 ```sh
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/JeffereyChasing/Python_Template.git
+cd Python_Template
 ```
 Install dependencies:
 ```sh
