@@ -2,6 +2,7 @@ from src.calculator import Calculator
 from src.logger import Logger
 from src.notifier import Notifier
 
+
 def test_end_to_end():
     calc = Calculator()
     log = Logger()

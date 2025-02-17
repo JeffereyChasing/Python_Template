@@ -1,8 +1,9 @@
-import pytest
+from unittest.mock import Mock
+
 from src.calculator import Calculator
 from src.logger import Logger
 from src.notifier import Notifier
-from unittest.mock import Mock
+
 
 def test_calculator_logger():
     calculator = Calculator()
@@ -21,10 +22,10 @@ def test_calculator_logger_mock_notifier():
     calculator = Calculator()
     logger = Logger()
     notifier_mock = Mock()
-    
+
     result = calculator.multiply(5, 3)
     logger.log("multiply", result)
     notifier_mock.notify.return_value = result > 10
-    
+
     assert "multiply: 15" in logger.get_logs()
     assert notifier_mock.notify(result) is True

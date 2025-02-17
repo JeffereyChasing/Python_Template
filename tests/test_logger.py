@@ -1,5 +1,7 @@
 import pytest
+
 from src.logger import Logger
+
 
 @pytest.fixture
 def logger():
